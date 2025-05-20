@@ -64,6 +64,4 @@ public class Template {
     public void setParametersMetaData(ParametersMetaData parametersMetaData) {
         this.parametersMetaData = parametersMetaData;
     }
-
-
 }

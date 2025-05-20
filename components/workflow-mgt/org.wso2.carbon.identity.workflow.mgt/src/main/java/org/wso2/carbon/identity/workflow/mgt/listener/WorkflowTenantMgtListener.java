@@ -56,5 +56,4 @@ public class WorkflowTenantMgtListener extends AbstractIdentityTenantMgtListener
             throw new StratosException("Server error occurred when removing workflows");
         }
     }
-
 }

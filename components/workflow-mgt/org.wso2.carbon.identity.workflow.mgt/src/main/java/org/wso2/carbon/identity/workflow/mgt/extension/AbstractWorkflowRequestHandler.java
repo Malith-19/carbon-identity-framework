@@ -164,7 +164,7 @@ public abstract class AbstractWorkflowRequestHandler implements WorkflowRequestH
         parameter.setRequiredInWorkflow(required);
         String valueType = getParamDefinitions().get(name);
         if (valueType == null || value == null) {
-            //null value as param, or undefined param
+            // Null value as param, or undefined param.
             parameter.setValueType(WorkflowDataType.OTHER_TYPE);
         } else {
             if (isValueValid(name, value, valueType)) {
@@ -229,14 +229,13 @@ public abstract class AbstractWorkflowRequestHandler implements WorkflowRequestH
      * @return
      */
     public boolean isValidOperation(Entity[] entities) throws WorkflowException {
+
         return true;
     }
 
     private boolean isWorkflowCompleted() {
 
-        if (retryNeedAtCallback() && getWorkFlowCompleted() != null && getWorkFlowCompleted()) {
-            return true;
-        } else return false;
+        return retryNeedAtCallback() && getWorkFlowCompleted() != null && getWorkFlowCompleted();
     }
 
     /**

@@ -295,5 +295,4 @@ public class WorkflowRequestAssociationDAO {
         }
         return associations;
     }
-
 }

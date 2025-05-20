@@ -96,14 +96,17 @@ public class WorkflowMgtServiceComponent {
              policy = ReferencePolicy.DYNAMIC, 
              unbind = "unsetRealmService")
     protected void setRealmService(RealmService realmService) {
+
         WorkflowServiceDataHolder.getInstance().setRealmService(realmService);
     }
 
     protected void unsetRealmService(RealmService realmService) {
+
         WorkflowServiceDataHolder.getInstance().setRealmService(null);
     }
 
     protected void unsetConfigurationContextService(ConfigurationContextService contextService) {
+
         WorkflowServiceDataHolder.getInstance().setConfigurationContextService(null);
     }
 
@@ -114,6 +117,7 @@ public class WorkflowMgtServiceComponent {
              policy = ReferencePolicy.DYNAMIC, 
              unbind = "unsetConfigurationContextService")
     protected void setConfigurationContextService(ConfigurationContextService contextService) {
+
         WorkflowServiceDataHolder.getInstance().setConfigurationContextService(contextService);
     }
 
@@ -124,10 +128,12 @@ public class WorkflowMgtServiceComponent {
              policy = ReferencePolicy.DYNAMIC, 
              unbind = "unsetWorkflowRequestHandler")
     protected void setWorkflowRequestHandler(WorkflowRequestHandler workflowRequestHandler) {
+
         WorkflowServiceDataHolder.getInstance().addWorkflowRequestHandler(workflowRequestHandler);
     }
 
     protected void unsetWorkflowRequestHandler(WorkflowRequestHandler workflowRequestHandler) {
+
         WorkflowServiceDataHolder.getInstance().removeWorkflowRequestHandler(workflowRequestHandler);
     }
 
@@ -138,10 +144,12 @@ public class WorkflowMgtServiceComponent {
              policy = ReferencePolicy.DYNAMIC, 
              unbind = "unsetTemplate")
     protected void setTemplate(AbstractTemplate template) {
+
         WorkflowServiceDataHolder.getInstance().addTemplate(template);
     }
 
     protected void unsetTemplate(AbstractTemplate template) {
+
         WorkflowServiceDataHolder.getInstance().removeTemplate(template);
     }
 
@@ -152,10 +160,12 @@ public class WorkflowMgtServiceComponent {
              policy = ReferencePolicy.DYNAMIC, 
              unbind = "unsetWorkflowImplementation")
     protected void setWorkflowImplementation(AbstractWorkflow workflowImplementation) {
+
         WorkflowServiceDataHolder.getInstance().addWorkflowImplementation(workflowImplementation);
     }
 
     protected void unsetWorkflowImplementation(AbstractWorkflow workflowImplementation) {
+
         WorkflowServiceDataHolder.getInstance().removeWorkflowImplementation(workflowImplementation);
     }
 
@@ -166,10 +176,12 @@ public class WorkflowMgtServiceComponent {
              policy = ReferencePolicy.DYNAMIC, 
              unbind = "unsetWorkflowRequestDeleteListener")
     protected void setWorkflowRequestDeleteListener(WorkflowListener workflowListener) {
+
         WorkflowServiceDataHolder.getInstance().getWorkflowListenerList().add(workflowListener);
     }
 
     protected void unsetWorkflowRequestDeleteListener(WorkflowListener workflowListener) {
+
         WorkflowServiceDataHolder.getInstance().getWorkflowListenerList().remove(workflowListener);
     }
 
@@ -180,16 +192,18 @@ public class WorkflowMgtServiceComponent {
              policy = ReferencePolicy.DYNAMIC, 
              unbind = "unsetWorkflowExecutorListener")
     protected void setWorkflowExecutorListener(WorkflowExecutorManagerListener workflowListener) {
+
         WorkflowServiceDataHolder.getInstance().getExecutorListenerList().add(workflowListener);
     }
 
     protected void unsetWorkflowExecutorListener(WorkflowExecutorManagerListener workflowListener) {
+
         WorkflowServiceDataHolder.getInstance().getExecutorListenerList().remove(workflowListener);
     }
 
     protected void unsetIdentityCoreInitializedEventService(IdentityCoreInitializedEvent identityCoreInitializedEvent) {
-    /* reference IdentityCoreInitializedEvent service to guarantee that this component will wait until identity core
-         is started */
+    /* Reference IdentityCoreInitializedEvent service to guarantee that this component will wait until identity core
+         is started. */
     }
 
     @Reference(
@@ -199,8 +213,8 @@ public class WorkflowMgtServiceComponent {
              policy = ReferencePolicy.DYNAMIC, 
              unbind = "unsetIdentityCoreInitializedEventService")
     protected void setIdentityCoreInitializedEventService(IdentityCoreInitializedEvent identityCoreInitializedEvent) {
-    /* reference IdentityCoreInitializedEvent service to guarantee that this component will wait until identity core
-         is started */
+    /* Reference IdentityCoreInitializedEvent service to guarantee that this component will wait until identity core
+         is started. */
     }
 }
 

@@ -26,13 +26,11 @@ import java.util.List;
 public class WorkflowRequest implements Serializable, Cloneable {
 
     private static final long serialVersionUID = 578401681187017212L;
-
     public static final String CREDENTIAL = "Credential";
     private String uuid;
     private String eventType;
     private int tenantId;
     private List<RequestParameter> requestParameters;
-
 
     public String getUuid() {
         return uuid;

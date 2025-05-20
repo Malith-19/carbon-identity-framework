@@ -58,6 +58,7 @@ public class WorkflowManagementUtil {
      * @throws WorkflowException
      */
     public static void createAppRole(String workflowName) throws WorkflowException {
+
         String roleName = createWorkflowRoleName(workflowName);
         String qualifiedUsername = CarbonContext.getThreadLocalCarbonContext().getUsername();
         String[] user = {qualifiedUsername};
@@ -72,7 +73,6 @@ public class WorkflowManagementUtil {
         } catch (UserStoreException e) {
             throw new WorkflowException("Error while creating role", e);
         }
-
     }
 
     /**
@@ -82,6 +82,7 @@ public class WorkflowManagementUtil {
      * @throws WorkflowException
      */
     public static void deleteWorkflowRole(String workflowName) throws WorkflowException {
+
         String roleName = createWorkflowRoleName(workflowName);
 
         try {
@@ -104,6 +105,7 @@ public class WorkflowManagementUtil {
      */
     public static void updateWorkflowRoleName(String oldWorkflowName, String newWorkflowName) throws
             WorkflowException {
+
         String oldRoleName = createWorkflowRoleName(oldWorkflowName);
         String newRoleName = createWorkflowRoleName(newWorkflowName);
         try {
@@ -115,7 +117,6 @@ public class WorkflowManagementUtil {
         } catch (UserStoreException e) {
             throw new WorkflowException("Error while updating workflow role name.", e);
         }
-
     }
 
     /**
@@ -125,6 +126,7 @@ public class WorkflowManagementUtil {
      * @return
      */
     public static String createWorkflowRoleName(String workflowName) {
+
         return UserCoreConstants.INTERNAL_DOMAIN + UserCoreConstants.DOMAIN_SEPARATOR + workflowName;
     }
 
@@ -168,7 +170,8 @@ public class WorkflowManagementUtil {
      * @throws IOException
      */
     public static String readFileFromResource(InputStream resourceAsStream) throws URISyntaxException, IOException {
-        String content = null;
+
+        String content;
         try {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(resourceAsStream);
             int c = -1;
@@ -196,6 +199,7 @@ public class WorkflowManagementUtil {
      * @return
      */
     public static Parameter getParameter(List<Parameter> parameterList, String paramName, String holder) {
+
         for (Parameter parameter : parameterList) {
             if (parameter.getParamName().equals(paramName) && parameter.getqName().equals(paramName) &&
                     parameter.getHolder().equals(holder)) {
@@ -228,9 +232,6 @@ public class WorkflowManagementUtil {
             log.warn("Error occurred while parsing the 'ItemsPerPage' property value in carbon.xml. Defaulting to: "
                     + WFConstant.DEFAULT_RESULTS_PER_PAGE);
         }
-
         return WFConstant.DEFAULT_RESULTS_PER_PAGE;
     }
-
-
 }

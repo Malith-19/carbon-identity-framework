@@ -505,5 +505,4 @@ public class SQLConstants {
     private SQLConstants() {
 
     }
-
 }

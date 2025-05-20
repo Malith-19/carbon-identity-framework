@@ -18,7 +18,6 @@
 
 package org.wso2.carbon.identity.workflow.mgt;
 
-
 import org.wso2.carbon.identity.workflow.mgt.util.ExecutorResultState;
 
 import java.io.Serializable;

@@ -76,5 +76,4 @@ public interface WorkflowRequestHandler {
      * @return
      */
     String getCategory();
-
 }

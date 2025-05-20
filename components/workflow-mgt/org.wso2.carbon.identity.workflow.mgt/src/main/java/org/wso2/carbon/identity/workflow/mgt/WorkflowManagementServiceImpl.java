@@ -77,7 +77,6 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
     private WorkflowRequestDAO workflowRequestDAO = new WorkflowRequestDAO();
     private WorkflowRequestAssociationDAO workflowRequestAssociationDAO = new WorkflowRequestAssociationDAO();
 
-
     @Override
     public Workflow getWorkflow(String workflowId) throws WorkflowException {
         List<WorkflowListener> workflowListenerList =
@@ -366,10 +365,10 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
             throw new WorkflowClientException("A workflow engine with name: " + workflow.getWorkflowImplId() +
                     " doesn't exist.");
         }
-        //deploying the template
+        // Deploying the template.
         abstractWorkflow.deploy(parameterList);
 
-        //add workflow to the database
+        // Add workflow to the database.
         Workflow oldWorkflow = workflowDAO.getWorkflow(workflow.getWorkflowId());
         if (oldWorkflow == null) {
             workflowDAO.addWorkflow(workflow, tenantId);
@@ -387,7 +386,6 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
                 workflowListener.doPostAddWorkflow(workflow, parameterList, tenantId);
             }
         }
-
     }
 
     @Override
@@ -420,7 +418,7 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
             throw new InternalWorkflowException("Condition cannot be null");
         }
 
-        //check for xpath syntax errors
+        // Check for xpath syntax errors.
         XPathFactory factory = XPathFactory.newInstance();
         XPath xpath = factory.newXPath();
         try {
@@ -448,7 +446,8 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
      * @throws WorkflowException
      */
     @Override
-    public List<Workflow> listPaginatedWorkflows(int tenantId, int limit, int offset, String filter) throws WorkflowException{
+    public List<Workflow> listPaginatedWorkflows(int tenantId, int limit, int offset, String filter)
+            throws WorkflowException{
 
         if (log.isDebugEnabled()) {
             log.debug("Getting workflow of tenant " + tenantId);
@@ -532,11 +531,12 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
 
     @Override
     public void removeWorkflow(String workflowId) throws WorkflowException {
+
         Workflow workflow = workflowDAO.getWorkflow(workflowId);
         if (workflow == null) {
             throw new WorkflowClientException("A workflow with ID: " + workflowId + " doesn't exist.");
         }
-        //Deleting the role that is created for per workflow
+        // Deleting the role that is created for per workflow.
         List<WorkflowListener> workflowListenerList = WorkflowServiceDataHolder.getInstance().getWorkflowListenerList();
 
         for (WorkflowListener workflowListener : workflowListenerList) {
@@ -604,7 +604,6 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
                 workflowListener.doPostRemoveAssociation(associationId);
             }
         }
-
     }
 
 
@@ -626,7 +625,7 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
             if (requestHandler != null) {
                 association.setEventName(requestHandler.getFriendlyName());
             } else {
-                //invalid reference, probably event id is renamed or removed
+                // Invalid reference, probably event id is renamed or removed.
                 iterator.remove();
             }
         }
@@ -682,7 +681,7 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
             if (requestHandler != null) {
                 association.setEventName(requestHandler.getFriendlyName());
             } else {
-                //invalid reference, probably event id is renamed or removed
+                // Invalid reference, probably event id is renamed or removed.
                 iterator.remove();
             }
         }
@@ -801,7 +800,6 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
                 workflowListener.doPostChangeAssociationState(associationId, isEnable);
             }
         }
-
     }
 
     /**
@@ -978,8 +976,8 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
     /**
      * Check if an operation is engaged with a workflow or not.
      *
-     * @param eventType
-     * @return
+     * @param eventType The event type to check for workflow associations.
+     * @return true if the event type is associated with at least one workflow, false otherwise.
      * @throws InternalWorkflowException
      */
     @Override
@@ -999,12 +997,7 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
             }
         }
 
-        if (associations.size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return associations.size() > 0;
     }
 
     /**
@@ -1187,7 +1180,6 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
         }
 
         return resultList;
-
     }
 
     /**
@@ -1222,6 +1214,4 @@ public class WorkflowManagementServiceImpl implements WorkflowManagementService 
         }
         return requestEntities;
     }
-
-
 }

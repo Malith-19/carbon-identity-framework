@@ -54,7 +54,6 @@ public class WorkflowRequestBuilder {
     private static final String WF_REQ_APPROVE_USER_ELEM = "user";
     private static final String WF_REQ_APPROVE_ROLE_ELEM = "role";
 
-
     //    private static final String WF_REQ_TENANT_DOMAIN_ELEM = "tenantDomain";
     private static final String WF_REQ_PARAMS_ELEM = "parameters";
     private static final String WF_REQ_PARAM_ELEM = "parameter";
@@ -409,6 +408,7 @@ public class WorkflowRequestBuilder {
     }
 
     private Map<String, Map<String, List<String>>> getApprovalStepMap() {
+
         Map<String, Map<String, List<String>>> map = new HashMap<String, Map<String, List<String>>>();
         for (Map.Entry<String, Object> entry : this.initParams.entrySet()) {
             if (entry.getKey().startsWith("step-")) {
@@ -441,6 +441,5 @@ public class WorkflowRequestBuilder {
 
         }
         return map;
-
     }
 }

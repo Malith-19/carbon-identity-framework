@@ -54,6 +54,7 @@ public class WorkflowRequestDAO {
      * @throws WorkflowException
      */
     public void addWorkflowEntry(WorkflowRequest workflow, String currentUser, int tenantId) throws WorkflowException {
+
         Connection connection = IdentityDatabaseUtil.getDBConnection();
         PreparedStatement prepStmt = null;
         String query = SQLConstants.ADD_WORKFLOW_REQUEST_QUERY;
@@ -88,6 +89,7 @@ public class WorkflowRequestDAO {
      * @throws IOException
      */
     private byte[] serializeWorkflowRequest(WorkflowRequest workFlowRequest) throws IOException {
+
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
         oos.writeObject(workFlowRequest);
@@ -103,6 +105,7 @@ public class WorkflowRequestDAO {
      * @throws WorkflowException
      */
     public WorkflowRequest retrieveWorkflow(String uuid) throws InternalWorkflowException {
+
         Connection connection = IdentityDatabaseUtil.getDBConnection(false);
         PreparedStatement prepStmt = null;
         ResultSet rs = null;
@@ -134,6 +137,7 @@ public class WorkflowRequestDAO {
      * @throws InternalWorkflowException
      */
     public String retrieveStatusOfWorkflow(String uuid) throws InternalWorkflowException {
+
         Connection connection = IdentityDatabaseUtil.getDBConnection(false);
         PreparedStatement prepStmt = null;
         ResultSet resultSet = null;
@@ -163,6 +167,7 @@ public class WorkflowRequestDAO {
      * @throws InternalWorkflowException
      */
     public String retrieveCreatedUserOfRequest(String uuid) throws InternalWorkflowException {
+
         Connection connection = IdentityDatabaseUtil.getDBConnection(false);
         PreparedStatement prepStmt = null;
         ResultSet resultSet = null;
@@ -505,7 +510,6 @@ public class WorkflowRequestDAO {
                         query = SQLConstants.GET_REQUESTS_FILTER_FROM_CREATED_TIME_AND_STATUS_INFORMIX;
                     }
                 }
-
             } else {
                 if (timeCategory.equals(UPDATED_AT_FILTER)) {
                     if (status.equals(ALL_TASKS_FILTER) || status.isEmpty()) {
@@ -538,6 +542,7 @@ public class WorkflowRequestDAO {
             for (int i = 0; i < requestDTOs.size(); i++) {
                 requestArray[i] = requestDTOs.get(i);
             }
+
             return requestArray;
         } catch (SQLException e) {
             throw new InternalWorkflowException("Error when executing the sql query:" + query, e);
@@ -588,5 +593,4 @@ public class WorkflowRequestDAO {
             IdentityDatabaseUtil.closeAllConnections(connection, null, prepStmt);
         }
     }
-
 }

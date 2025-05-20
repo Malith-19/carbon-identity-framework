@@ -55,15 +55,18 @@ public class WorkflowServiceDataHolder {
 
     public void setWorkflowListenerList(
             List<WorkflowListener> workflowListenerList) {
+
         this.workflowListenerList = workflowListenerList;
     }
 
     public List<WorkflowExecutorManagerListener> getExecutorListenerList() {
+
         return executorListenerList;
     }
 
     public void setExecutorListenerList(
             List<WorkflowExecutorManagerListener> executorListenerList) {
+
         this.executorListenerList = executorListenerList;
     }
 
@@ -113,10 +116,12 @@ public class WorkflowServiceDataHolder {
     }
 
     public void addTemplate(AbstractTemplate template) {
+
         templates.put(template.getTemplateId(), template);
     }
 
     public void removeTemplate(AbstractTemplate template) {
+
         if (template != null && template.getTemplateId() != null) {
             templates.remove(template.getTemplateId());
         }
@@ -124,14 +129,17 @@ public class WorkflowServiceDataHolder {
 
 
     public Map<String, AbstractTemplate> getTemplates() {
+
         return templates;
     }
 
     public Map<String, Map<String,AbstractWorkflow>> getWorkflowImpls() {
+
         return workflowImpls;
     }
 
     public void addWorkflowImplementation(AbstractWorkflow abstractWorkflow) {
+
         Map<String, AbstractWorkflow> abstractWorkflowMap = workflowImpls.get(abstractWorkflow.getTemplateId());
         if(abstractWorkflowMap == null){
             abstractWorkflowMap = new HashMap<>();
