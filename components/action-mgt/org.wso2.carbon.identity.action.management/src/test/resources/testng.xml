@@ -19,18 +19,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="org.wso2.carbon.identity.action.management">
-        <test name="action-mgt-tests" preserve-order="true" parallel="false">
+        <test name="action-mgt-tests">
                 <classes>
-                        <class name="org.wso2.carbon.identity.action.management.service.ActionConverterFactoryTest"></class>
-                        <class name="org.wso2.carbon.identity.action.management.dao.ActionDTOModelResolverFactoryTest"></class>
-                        <class name="org.wso2.carbon.identity.action.management.model.ActionTypesTest"></class>
-                        <class name="org.wso2.carbon.identity.action.management.util.ActionSecretProcessorTest"></class>
-                        <class name="org.wso2.carbon.identity.action.management.util.ActionValidatorTest"></class>
-                        <class name="org.wso2.carbon.identity.action.management.dao.ActionManagementDAOImplTest"></class>
-                        <class name="org.wso2.carbon.identity.action.management.dao.ActionManagementDAOFacadeTest"></class>
-                        <class name="org.wso2.carbon.identity.action.management.service.ActionManagementServiceImplTest"></class>
-                        <class name="org.wso2.carbon.identity.action.management.service.CacheBackedActionManagementServiceTest"></class>
-                        <class name="org.wso2.carbon.identity.action.management.util.ActionManagementAuditLoggerTest"></class>
+                        <class name="org.wso2.carbon.identity.action.management.service.ActionConverterFactoryTest"/>
+                        <class name="org.wso2.carbon.identity.action.management.dao.ActionDTOModelResolverFactoryTest"/>
+                        <class name="org.wso2.carbon.identity.action.management.model.ActionTypesTest"/>
+                        <class name="org.wso2.carbon.identity.action.management.util.ActionSecretProcessorTest"/>
+                        <class name="org.wso2.carbon.identity.action.management.util.ActionValidatorTest"/>
+                        <class name="org.wso2.carbon.identity.action.management.dao.ActionManagementDAOImplTest"/>
+                        <class name="org.wso2.carbon.identity.action.management.dao.ActionManagementDAOFacadeTest"/>
+                        <class name="org.wso2.carbon.identity.action.management.service.ActionManagementServiceImplTest"/>
+                        <class name="org.wso2.carbon.identity.action.management.service.CacheBackedActionManagementServiceTest"/>
+                        <class name="org.wso2.carbon.identity.action.management.util.ActionManagementAuditLoggerTest"/>
                 </classes>
         </test>
 </suite>
