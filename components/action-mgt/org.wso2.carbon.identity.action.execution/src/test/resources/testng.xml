@@ -18,7 +18,7 @@
 
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="org.wso2.carbon.identity.action.execution">
+<suite name="org.wso2.carbon.identity.action.execution" parallel="classes" thread-count="4">
     <test name="action-execution-util-tests">
         <classes>
             <class name="org.wso2.carbon.identity.action.execution.util.AuthMethodsTest"/>

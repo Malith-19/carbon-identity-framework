@@ -16,7 +16,7 @@
 
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="AuthenticationEndpointUtilTestSuite">
+<suite name="AuthenticationEndpointUtilTestSuite" parallel="classes" thread-count="4">
 
     <test name="AuthenticationEndpointUtilTests-with-info-logs" preserve-order="true" parallel="false">
         <parameter name="log-level" value="info"/>
